@@ -1,0 +1,32 @@
+﻿using RimWorld.Planet;
+using RimWorld;
+using FactionRelationFramework.Patches.FactionPatches.Custom;
+using HarmonyLib;
+using Verse;
+
+namespace FactionRelationFramework.Patches.FactionPatches
+{
+    [StaticConstructorOnStartup]
+    public static class FactionRelationPatch
+    {
+        static FactionRelationPatch()
+        {
+            var harmony = FactionRelationFramework.Harmony;
+
+            harmony.Patch(AccessTools.Method(typeof(FactionRelation), nameof(FactionRelation.CheckKindThresholds)),
+                prefix: new HarmonyMethod(typeof(FactionRelationPatch), nameof(PreCheckKindThresholds)));
+        }
+
+        public static bool PreCheckKindThresholds(FactionRelation __instance, Faction faction, bool canSendLetter, string reason, GlobalTargetInfo lookTarget, out bool sentLetter)
+        {
+            sentLetter = false;
+
+            if (faction is CustomFaction customFaction)
+            {
+                return customFaction.PreCheckKindThresholds(ref __instance, canSendLetter, reason, lookTarget, out sentLetter);
+            }
+
+            return true;
+        }
+    }
+}
