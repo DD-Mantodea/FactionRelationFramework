@@ -8,13 +8,14 @@ A framework allows you make custom factional relations
 
 </div>
 
-## 📖 介绍
+## 📖 Introduction
+
 `Faction Relation Framework` is a framework for mod developers to make custom factional relations and set them.
 
 This mod is just begin so only has few functions and lots of bugs. Plz send issues if you meet questions to help the author to develop this mod better! Thx!
 
 
-#### ✔️ 已经完成的内容
+#### ✔️ Contents Done
 
 `> custom relation name, goodwill range, relation color, display value and much thing`
 
@@ -26,10 +27,10 @@ This mod is just begin so only has few functions and lots of bugs. Plz send issu
 
 `> allow you add new options and modify vanilla options of commsconsole`
 
-#### ➕ 正在开发的内容
+#### ➕ Contents Under Develop
 
 `> more extendable hooks`
 
-## ✨ 用法
+## ✨ Usage
 
 [Here are the examples](Examples-en.md)
